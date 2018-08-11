@@ -1,4 +1,13 @@
-package sandbox;
+package net.technearts.moto;
+
+import static net.technearts.moto.CompositeRule.allMatch;
+import static net.technearts.moto.CompositeRule.anyMatch;
+import static net.technearts.moto.CompositeRule.exactMatch;
+import static net.technearts.moto.CompositeRule.minMatch;
+import static net.technearts.moto.CompositeRule.noneMatch;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,14 +18,9 @@ import java.util.stream.Stream;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static sandbox.CompositeRule.allMatch;
-import static sandbox.CompositeRule.anyMatch;
-import static sandbox.CompositeRule.exactMatch;
-import static sandbox.CompositeRule.minMatch;
-import static sandbox.CompositeRule.noneMatch;
+import net.technearts.moto.Params;
+import net.technearts.moto.Rule;
+import net.technearts.moto.SimpleRule;
 
 public class RuleTest {
 

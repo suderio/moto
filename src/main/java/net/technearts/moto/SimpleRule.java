@@ -1,4 +1,4 @@
-package sandbox;
+package net.technearts.moto;
 
 import java.util.HashSet;
 import java.util.List;

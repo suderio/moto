@@ -1,8 +1,8 @@
-package sandbox;
+package net.technearts.moto;
 
 import java.util.Arrays;
 
-class RuleBuilder {
+public class RuleBuilder {
   private String name;
 
   public RuleBuilder(String name) {
