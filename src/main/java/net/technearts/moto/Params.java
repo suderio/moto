@@ -11,4 +11,8 @@ public class Params extends HashMap<String, List<Object>>{
   public void add(String name, Object... objects) {
     this.put(name, Arrays.asList(objects));
   }
+  
+  public void add(String name, Object object) {
+    this.put(name, Arrays.asList(object));
+  }
 }

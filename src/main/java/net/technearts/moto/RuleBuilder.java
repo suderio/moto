@@ -58,34 +58,43 @@ public class RuleBuilder {
   }
 
   public Rule in(long... args) {
-    return new SimpleRule<Long>(name, x -> Arrays.stream(args).anyMatch(arg -> arg == x));
+    return new SimpleRule<Long>(name,
+        x -> Arrays.stream(args).anyMatch(arg -> arg == x));
   }
 
   public Rule in(int... args) {
-    return new SimpleRule<Integer>(name, x -> Arrays.stream(args).anyMatch(arg -> arg == x));
+    return new SimpleRule<Integer>(name,
+        x -> Arrays.stream(args).anyMatch(arg -> arg == x));
   }
 
   public Rule notIn(long... args) {
-    return new SimpleRule<Long>(name, x -> !Arrays.stream(args).anyMatch(arg -> arg == x));
+    return new SimpleRule<Long>(name,
+        x -> !Arrays.stream(args).anyMatch(arg -> arg == x));
   }
 
   public Rule notIn(int... args) {
-    return new SimpleRule<Integer>(name, x -> !Arrays.stream(args).anyMatch(arg -> arg == x));
+    return new SimpleRule<Integer>(name,
+        x -> !Arrays.stream(args).anyMatch(arg -> arg == x));
   }
-  
+
   public Rule contains(long... args) {
-    return new SimpleRule<Long>(name, x -> Arrays.stream(args).anyMatch(arg -> arg == x));
+    return new SimpleRule<Long[]>(name, x -> Arrays.stream(args)
+        .allMatch(arg -> Arrays.binarySearch(x, arg) >= 0));
   }
 
   public Rule contains(int... args) {
-    return new SimpleRule<Integer>(name, x -> Arrays.stream(args).anyMatch(arg -> arg == x));
+    return new SimpleRule<Integer[]>(name, x -> Arrays.stream(args)
+        .allMatch(arg -> Arrays.binarySearch(x, arg) >= 0));
   }
-  
+
   public Rule notContains(long... args) {
-    return new SimpleRule<Long>(name, x -> !Arrays.stream(args).anyMatch(arg -> arg == x));
+    return new SimpleRule<Long[]>(name, x -> !Arrays.stream(args)
+        .allMatch(arg -> Arrays.binarySearch(x, arg) >= 0));
   }
 
   public Rule notContains(int... args) {
-    return new SimpleRule<Integer>(name, x -> !Arrays.stream(args).anyMatch(arg -> arg == x));
+    return new SimpleRule<Integer[]>(name, x -> Arrays.stream(args)
+        .allMatch(arg -> Arrays.binarySearch(x, arg) >= 0));
   }
+  
 }

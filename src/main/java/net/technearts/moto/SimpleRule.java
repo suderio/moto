@@ -39,7 +39,8 @@ public class SimpleRule<T> extends Rule implements Predicate<T> {
 
   public boolean test(Map<String, List<Object>> params, boolean defaultResult) {
     if (params.get(name) != null)
-      return params.get(name).stream().map(this::cast).allMatch(predicate);
+      return params.get(name).stream().map(this::cast)
+          .allMatch(predicate);
     return defaultResult;
   }
 
