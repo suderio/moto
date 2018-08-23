@@ -102,4 +102,23 @@ public class CompositeRule extends Rule {
 		;
 		return result;
 	}
+
+  public Result result(Map<String, List<Object>> params,
+      boolean defaultResult) {
+    final Result result = new Result();
+    rules.stream().peek(rule -> {
+      result.all = null;
+      result.ok.addAll(rule.paramsOk(params, defaultResult));
+      result.notOk.addAll(rule.paramsNotOk(params, defaultResult));
+      result.missing = null;
+    });
+    return result;
+  }
+
+  static class Result {
+    Set<String> all = new HashSet<>();
+    Set<String> ok = new HashSet<>();
+    Set<String> notOk = new HashSet<>();
+    Set<String> missing = new HashSet<>();
+  }
 }

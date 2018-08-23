@@ -112,7 +112,7 @@ public class RuleBuilderTest {
     assertTrue(z.test(params));
     assertTrue(w.test(params));
 
-    params.add("x", 0, 3);
+    params.addAll("x", 0, 3);
     params.add("y", -1L);
     params.add("z", 0);
     params.add("w", 1L);
@@ -131,10 +131,10 @@ public class RuleBuilderTest {
     Rule w = SimpleRule.rule("w").notContains(0L, 1L, 2L);
 
     Params params = new Params();
-    params.add("x", (Object) new Integer[] { 0, 1, 2, 3 });
-    params.add("y", (Object) new Long[] { 0L, 1L, 2L, 3L });
-    params.add("z", (Object) new Integer[] { 0, 1, 2 });
-    params.add("w", (Object) new Long[] { 1L, 0L, 2L });
+    params.add("x", new Integer[] { 0, 1, 2, 3 });
+    params.add("y", new Long[] { 0L, 1L, 2L, 3L });
+    params.add("z", new Integer[] { 0, 1, 2 });
+    params.add("w", new Long[] { 1L, 0L, 2L });
 
     assertTrue(x.test(params));
     assertTrue(y.test(params));
@@ -143,8 +143,8 @@ public class RuleBuilderTest {
 
     params.add("x", 3);
     params.add("y", -1L);
-    params.add("z", 0, 1, 2, 3);
-    params.add("w", 0L, 1L, 3L);
+    params.addAll("z", 0, 1, 2, 3);
+    params.addAll("w", 0L, 1L, 3L);
 
     assertFalse(x.test(params));
     assertFalse(y.test(params));
