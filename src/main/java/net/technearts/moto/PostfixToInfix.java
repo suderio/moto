@@ -4,6 +4,7 @@ import java.util.Stack;
 /**
  * https://rosettacode.org/wiki/Parsing/RPN_to_infix_conversion#Java
  *
+ * ver também http://interactivepython.org/runestone/static/pythonds/BasicDS/InfixPrefixandPostfixExpressions.html
  */
 public class PostfixToInfix {
   
