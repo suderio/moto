@@ -114,7 +114,7 @@ public class Lambda<R> {
     Lambda other = (Lambda) obj;
     boolean sameParameters = false;
     for (Parameter p : parameters) {
-      sameParameters
+      //sameParameters
     }
     return Objects.equals(name, other.name) && Objects.equals(parameters, other.parameters);
   }
